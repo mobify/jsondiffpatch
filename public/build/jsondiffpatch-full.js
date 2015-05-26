@@ -3289,19 +3289,19 @@ exports.reverse = function() {
 if (environment.isBrowser) {
 	exports.homepage = 'https://github.com/benjamine/jsondiffpatch';
 	exports.version = '0.1.31';
-
-    var formatterModuleName = './formatters';
-    var formatters = require(formatterModuleName);
-    exports.formatters = formatters;
 } else {
 	var packageInfoModuleName = '../package.json';
 	var packageInfo = require(packageInfoModuleName);
 	exports.homepage = packageInfo.homepage;
 	exports.version = packageInfo.version;
-
-	// shortcut for console
-	exports.console = formatters.console;
 }
+
+var formatterModuleName = './formatters';
+var formatters = require(formatterModuleName);
+exports.formatters = formatters;
+
+// shortcut for console
+exports.console = formatters.console;
 
 },{"./date-reviver":7,"./diffpatcher":8,"./environment":9}],17:[function(require,module,exports){
 var Pipe = function Pipe(name) {
